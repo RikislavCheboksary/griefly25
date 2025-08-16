@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{71B77C25-199D-5E68-983C-511E17B9CF1F}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+    <ProjectName>KVClient</ProjectName>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup>
+    <NMakeBuildCommandLine>cmake --build build\windows-msvc --config $(Configuration) --target KVClient</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>cmake --build build\windows-msvc --config $(Configuration) --target KVClient --clean-first</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>cmake --build build\windows-msvc --config $(Configuration) --target KVClient -- -t clean</NMakeCleanCommandLine>
+    <NMakeOutput>build/windows-msvc/sources/client/Debug/KVClient.exe</NMakeOutput>
+    <IncludePath>$(ProjectDir)..;$(ProjectDir)..\sources;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="sources\**\*.*" />
+    <None Include="utils\**\*.*" />
+    <None Include="exec\**\*.*" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
